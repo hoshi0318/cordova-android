@@ -20,8 +20,6 @@ RUN cd /usr/lib \
 && ln -s "/usr/lib/gradle-5.6.1/bin/gradle" /usr/bin/gradle \
 && rm "gradle-bin.zip"
 
-VOLUME $GHOST_SOURCE
-
 #Env set up
 ENV GRADLE_HOME=/usr/bin/gradle
 
