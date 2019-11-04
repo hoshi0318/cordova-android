@@ -3,7 +3,7 @@ FROM hshttsr/android28-alpine
 ENV GRADLE_VERSION=28.0.3
 
 #add user
-RUN addusere -h /home/user -D user
+RUN adduser -h /home/user -D user
 
 ## install npm package
 RUN apk update && \
