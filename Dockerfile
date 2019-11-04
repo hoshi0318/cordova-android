@@ -1,8 +1,12 @@
 FROM hshttsr/android28-alpine
 
-
 ENV GRADLE_VERSION=28.0.3
 
+//add user
+RUN addusere -h /home/user -D user
+
+ENV GHOST_SOURCE /usr/src/ghost
+WORKDIR $GHOST_SOURCE
 
 ## install npm package
 RUN apk update && \
@@ -12,18 +16,14 @@ RUN apk update && \
 
 RUN npm install -g cordova
 
-
-
 #Install gradle
-
 RUN cd /usr/lib \
 && wget https://downloads.gradle.org/distributions/gradle-5.6.1-bin.zip -o   gradle-bin.zip \
 && unzip "gradle-5.6.1-bin.zip" \
 && ln -s "/usr/lib/gradle-5.6.1/bin/gradle" /usr/bin/gradle \
 && rm "gradle-bin.zip"
 
-
-WORKDIR /home/work
+VOLUME $GHOST_SOURCE
 
 #Env set up
 ENV GRADLE_HOME=/usr/bin/gradle
