@@ -5,9 +5,6 @@ ENV GRADLE_VERSION=28.0.3
 #add user
 RUN addusere -h /home/user -D user
 
-RUN mkdir /home/workdir
-WORKDIR /home/workdir
-
 ## install npm package
 RUN apk update && \
     apk upgrade && \
