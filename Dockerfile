@@ -23,7 +23,7 @@ RUN cd /usr/lib \
 && rm "gradle-bin.zip"
 
 
-WORLDIR /home/work
+WORKDIR /home/work
 
 #Env set up
 ENV GRADLE_HOME=/usr/bin/gradle
