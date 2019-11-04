@@ -5,6 +5,11 @@ ENV GRADLE_VERSION=28.0.3
 #add user
 RUN adduser -h /home/user -D user
 
+#volume
+RUN mkdir /myvolume
+RUN echo "hello world" > /myvolume/greeting
+VOLUME /myvolume
+
 ## install npm package
 RUN apk update && \
     apk upgrade && \
