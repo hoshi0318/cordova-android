@@ -2,11 +2,11 @@ FROM hshttsr/android28-alpine
 
 ENV GRADLE_VERSION=28.0.3
 
-//add user
+#add user
 RUN addusere -h /home/user -D user
 
-ENV GHOST_SOURCE /usr/src/ghost
-WORKDIR $GHOST_SOURCE
+RUN mkdir /home/workdir
+WORKDIR /home/workdir
 
 ## install npm package
 RUN apk update && \
